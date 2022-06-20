@@ -1,0 +1,31 @@
+{
+    "name": "Microbit-HID Mouse",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "microphone": "*",
+        "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.22",
+        "bluetooth": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "main.py"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v5.0.6",
+        "tag": "v5.0.6",
+        "commits": "https://github.com/microsoft/pxt-microbit/commits/a7b22b445e8aebdca9d19b7fb2250d11b06e8009",
+        "target": "5.0.6",
+        "pxt": "8.0.3",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
