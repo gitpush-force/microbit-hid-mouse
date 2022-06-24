@@ -1,3 +1,6 @@
+/**
+ * Set default settings for mouse position and starting axis
+ */
 // Define Functions
 bluetooth.onBluetoothConnected(function () {
     music.playSoundEffect(music.createSoundEffect(WaveShape.Triangle, 1907, 5000, 151, 255, 1500, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), SoundExpressionPlayMode.UntilDone)
@@ -19,8 +22,15 @@ input.onButtonPressed(Button.AB, function () {
     absmouse.movexy(0, 0)
     music.playMelody("- - C C5 C C5 C - ", 1000)
     basic.showString("#")
+    basic.showLeds(`
+        # # . # #
+        # # . # #
+        . . . . .
+        # # . # #
+        # # . # #
+        `)
 })
-input.onButtonPressed(Button.B, function () {
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     Mouse_Mode = 0
     control.waitMicros(50)
     keyboard.sendString("" + keyboard.modifiers(keyboard._Modifier.apple) + "l")
@@ -31,18 +41,25 @@ input.onButtonPressed(Button.B, function () {
 let Absolute_Mouse_Y = 0
 let Absolute_Mouse_X = 0
 let Mouse_Mode = 0
+let Input_Mode = 0
 keyboard.startKeyboardService()
 absmouse.startAbsoluteMouseService()
 mouse.startMouseService()
 basic.showString("#")
 // Set default settings for mouse position and starting axis
 Mouse_Mode = 0
-Absolute_Mouse_X = -32767
-Absolute_Mouse_Y = -32767
+Absolute_Mouse_X = 0
+Absolute_Mouse_Y = 0
 let Mouse_Speed_X = 250
 let Mouse_Speed_Y = 250
 // Main Program
 basic.forever(function () {
+    if (input.buttonIsPressed(Button.B)) {
+        keyboard.sendString(keyboard.rawScancode(44))
+        while (input.buttonIsPressed(Button.B)) {
+        	
+        }
+    }
     if (Mouse_Mode == 1) {
         absmouse.movexy(Absolute_Mouse_X, Absolute_Mouse_Y)
         while (Mouse_Mode == 1) {
